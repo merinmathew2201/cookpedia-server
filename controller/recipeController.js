@@ -24,3 +24,16 @@ exports.viewRecipeController = async(req,res)=>{
         console.log(error);
     }
 }
+
+// related recipe 
+exports.relatedRecipeController = async(req,res)=>{
+    console.log("Inside relatedRecipeController");
+    const cuisine = req.query.cuisine
+    try {
+        const allRelatedRecipe = await recipes.find({cuisine})
+        res.status(200).json(allRelatedRecipe)
+    } catch (error) {
+        res.status(500).json(error)
+        console.log(error);
+    }
+}
