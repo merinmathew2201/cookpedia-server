@@ -33,5 +33,6 @@ router.post('/save-recipe/:id',jwtMiddleware,saveRecipeController.saveRecipeToCo
 // get all save recipe
 router.get('/save-recipes',jwtMiddleware,saveRecipeController.getUserSavedCollectionController)
 
-
+// remove save recipe
+router.delete('/save-recipes/:id',jwtMiddleware,saveRecipeController.removeUserSavedItemController)
 module.exports = router
