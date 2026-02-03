@@ -36,3 +36,15 @@ exports.userDownloadController = async (req,res)=>{
         res.status(500).json(error)
     }
 }
+
+// get all download list
+exports.getAllDownloadController = async (req,res)=>{
+    console.log("Inside getAllDownloadController");
+    try {
+        const allDownloadList = await downloads.find()
+        res.status(200).json(allDownloadList)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error)
+    }
+}
