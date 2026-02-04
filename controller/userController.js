@@ -62,3 +62,16 @@ exports.updateUserPictureController = async (req,res)=>{
         res.status(500).json(error)
     }
 }
+
+// get all user list except admin
+exports.getAllUsersController = async(req,res)=>{
+    console.log("Inside getAllUsersController");
+    try {
+        const allUsers = await users.find({role:{$eq:"user"}})
+        res.status(200).json(allUsers)
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error)
+    }
+    
+}
