@@ -66,5 +66,8 @@ router.put('/feedbacks/:id',adminMiddleware,feedbackController.updateFeedBackCon
 // add Recipe
 router.post('/recipes',adminMiddleware,recipeController.addRecipeController)
 
+// edit Recipe
+router.put('/recipes/:id',adminMiddleware,recipeController.updateRecipeController)
+
 
 module.exports = router
