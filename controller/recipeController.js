@@ -71,3 +71,16 @@ exports.updateRecipeController = async(req,res)=>{
         console.log(error);
     }
 }
+
+// remove recipe
+exports.removeRecipeController = async(req,res)=>{
+    console.log("Inside removeRecipeController");
+    const {id} = req.params
+    try {
+        const removeRecipe = await recipes.findByIdAndDelete({_id:id})
+        res.status(200).json(removeRecipe)
+    } catch (error) {
+        res.status(500).json(error)
+        console.log(error);
+    }
+}
